@@ -15,12 +15,8 @@ function onInputSearch(evt) {
   searchResultClean();
   if (evt.target.value === '' || evt.target.value.match(/^\s+$/)) return;
   fetchCountries(evt.target.value.trim())
-    .then(data => {
-      handleSearchResults(data);
-    })
-    .catch(error =>
-      Notify.failure('"Oops, there is no country with that name"')
-    );
+    .then(handleSearchResults)
+    .catch(Notify.failure('"Oops, there is no country with that name"'));
 }
 
 function handleSearchResults(arr) {
