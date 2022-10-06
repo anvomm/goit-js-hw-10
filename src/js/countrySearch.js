@@ -3,12 +3,10 @@ import { fetchCountries } from './fetchCountries';
 import refsList from './refs';
 import { stylizeOneCard, stylizeListOfCountries } from './resultsStylization';
 import { renderOneCard, renderManyCards } from './renderMarkup';
-
-const debounce = require('lodash.debounce');
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+const debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
-
 const refs = refsList();
 
 refs.input.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
